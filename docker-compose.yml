@@ -6,7 +6,8 @@ services:
     build: .
     restart: unless-stopped
     volumes:
-      -  /etc/letsencrypt/live/angela-numerolog.ru:/etc/nginx/ssl
+      - /etc/letsencrypt/live/angela-numerolog.ru:/etc/letsencrypt/live/angela-numerolog.ru
+      - /etc/letsencrypt/archive:/etc/letsencrypt/archive
       - ./nginx/conf.d:/etc/nginx/conf.d
     ports:
       - 80:80
