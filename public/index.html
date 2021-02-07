@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Таблица пифагора</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="index.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.62/jquery.inputmask.bundle.js"></script>
+    <script>
+        $(window).load(function()
+        {
+            var phones = [{ "mask": "##.##.####"}, { "mask": "##.##.####"}];
+            $('#date').inputmask({
+                mask: phones,
+                greedy: false,
+                definitions: { '#': { validator: "[0-9]", cardinality: 1}} });
+        });
+    </script>
+
+</head>
+<body>
+<div class="container">
+    <p>
+        <input class="calcInput" id="date" type="text" placeholder="ЧЧ.ММ.ГГГГ">
+        <span> <button class="сalcButton" onclick="calculate()">Рассчитать</button> </span>
+
+        <br>
+
+    <table class="calcTable" border="5" cellpadding="50">
+        <!--    HEAER    -->
+        <tr>
+            <td class="light" id="summary" colspan="3">
+                Дата рождения: <br><br> Число судьбы:
+            </td>
+            <td class="light" id="Темперамент">
+                Темперамент
+            </td>
+        </tr>
+        <!--    MAIN BODY    -->
+        <tr>
+            <td class="content" id="Характер">
+                Характер
+            </td>
+            <td class="content" id="Здоровье">
+                Здоровье
+            </td>
+            <td class="content" id="Удача">
+                Удача
+            </td>
+            <td class="light" id="Цель">
+                Цель
+            </td>
+        </tr>
+        <tr>
+            <td class="content" id="Энергия">
+                Энергия
+            </td>
+            <td class="content" id="Логика">
+                Логика
+            </td>
+            <td class="content" id="Долг">
+                Долг
+            </td>
+            <td class="light" id="Семья">
+                Семья
+            </td>
+        </tr>
+        <tr>
+            <td class="content" id="Интерес">
+                Интерес
+            </td>
+            <td class="content" id="Труд">
+                Труд
+            </td>
+            <td class="content" id="Память">
+                Память
+            </td>
+            <td class="light" id="Привычки">
+                Привычки
+            </td>
+        </tr>
+        <tr>
+            <td class="nonborder1">
+
+            </td>
+            <td id="Быт">
+                Быт
+            </td>
+            <td class="nonborder2" colspan="2">
+
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <button class="copyButton" id="copyButton1" style="visibility:hidden;" onclick="copy()">Копировать результат</button>
+
+    <hr>
+    <div>
+        <p>Уважаемые клиенты, со мной можно связаться через страницу в instagram:</p>
+        <a href="https://www.instagram.com/angela.numerolog/">@angela.numerolog</a>
+    </div>
+
+</div>
+</body>
+</html>
