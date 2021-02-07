@@ -6,7 +6,7 @@ services:
     build: .
     restart: always
     volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d/
+      - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/dhparam:/etc/nginx/dhparam
       - ./nginx/certbot/conf/:/etc/nginx/ssl/
       - ./nginx/certbot/data:/usr/share/nginx/html/letsencrypt
