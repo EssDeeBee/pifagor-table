@@ -1,23 +1,24 @@
-version: '3.1'
+version: '3.4'
 
 services:
   pifagor-table:
+    container_name: 'pifagor-table'
     build: .
     restart: always
     volumes:
-      - ./public_html:/public_html
-      - ./conf.d:/etc/nginx/conf.d/
-      - ./dhparam:/etc/nginx/dhparam
-      - ./certbot/conf/:/etc/nginx/ssl/
-      - ./certbot/data:/usr/share/nginx/html/letsencrypt
+      - ./nginx/conf.d:/etc/nginx/conf.d/
+      - ./nginx/dhparam:/etc/nginx/dhparam
+      - ./nginx/certbot/conf/:/etc/nginx/ssl/
+      - ./nginx/certbot/data:/usr/share/nginx/html/letsencrypt
     ports:
       - 80:80
       - 443:443
 
   certbot:
+    container_name: 'certbot'
     image: certbot/certbot:latest
     command: certonly --webroot --webroot-path=/usr/share/nginx/html/letsencrypt --email dzeboevy@mail.ru --agree-tos --no-eff-email -d angela-numerolog.ru
     volumes:
-      - ./certbot/conf/:/etc/letsencrypt
-      - ./certbot/logs/:/var/log/letsencrypt
-      - ./certbot/data:/usr/share/nginx/html/letsencrypt
+      - ./nginx/certbot/conf/:/etc/letsencrypt
+      - ./nginx/certbot/logs/:/var/log/letsencrypt
+      - ./nginx/certbot/data:/usr/share/nginx/html/letsencrypt
