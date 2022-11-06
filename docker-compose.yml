@@ -10,5 +10,5 @@ services:
       - /etc/letsencrypt/archive:/etc/letsencrypt/archive
       - ./nginx/conf.d:/etc/nginx/conf.d
     ports:
-      - 80:80
-      - 443:443
+      - 8082:80
+      - 8083:443
